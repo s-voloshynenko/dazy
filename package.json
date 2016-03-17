@@ -1,5 +1,5 @@
 {
-  "name": "blog_os",
+  "name": "dazy",
   "version": "0.0.1",
   "description": "Blog os",
   "main": "server.js",
@@ -8,7 +8,7 @@
     "build": "./node_modules/webpack/bin/webpack.js --progress --profile --colors"
   },
   "author": "Sergey Voloshynenko",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "6.7.0",
     "babel-loader": "6.2.4",
