@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Navigation from '../../components/navigation';
+require('./styles/index.css');
 
-export default class App extends Component {
+export default class OS extends Component {
   render() {
     return (
-      <div>
+      <div className="os">
         <Navigation />
       </div>
     )
