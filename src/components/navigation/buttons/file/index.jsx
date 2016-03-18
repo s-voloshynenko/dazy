@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
+require('../styles/index.css');
 
 export default class FileBtn extends Component {
   render() {
     return (
-      <ul>
+      <li className="nav-btn">
+        <a href="#">
+          File
+        </a>
         <ul>
-          <li>
-            File
-            <ul>
-              <li> New file </li>
-              <li> Open file </li>
-              <li> Save </li>
-              <li> Save as.. </li>
-            </ul>
-          </li>
+          <li><a href="#"> New file </a></li>
+          <li><a href="#"> Open file </a></li>
+          <li><a href="#"> Save </a></li>
+          <li><a href="#"> Save as.. </a></li>
         </ul>
-      </ul>
+      </li>
     )
   }
 }
