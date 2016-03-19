@@ -1,18 +1,22 @@
-li.nav-btn {
+.time {
   display: inline-block;
   background-color: #E64A19;
+  float: right;
 }
-  
-  li.nav-btn ul {
+
+  li.time ul {
     display: none;
     position: absolute; 
     top: 20px;
+    right: 0px;
   }
 
-  li.nav-btn:hover > ul {
+  li.time:hover > ul {
     display: inherit;
   }
 
-    li.nav-btn ul li {
+    li.time ul li {
       background-color: #E64A19;
+      width: 210px;
+      text-align: center;
     }

@@ -1,0 +1,8 @@
+table.calendar {
+  width: 200px;
+  margin: 5px;
+}
+
+  .currentDay {
+    background-color: #000000;
+  }
