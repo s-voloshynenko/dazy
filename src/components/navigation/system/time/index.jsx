@@ -32,8 +32,8 @@ export default class Time extends Component {
           {this.state.date}
         </a>
         <ul>
-          <li><a href="#"> {moment().format('dddd, MMMM Do YYYY')} </a></li>
-          <li><Calendar /></li>
+          <li> {moment().format('dddd, MMMM Do YYYY')} </li>
+          <li> <Calendar /> </li>
         </ul>
       </li>
     )
