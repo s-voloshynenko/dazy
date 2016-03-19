@@ -1,0 +1,27 @@
+ul.context-menu {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-color: #E64A19;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  z-index: 2;
+}
+
+  ul.context-menu li {
+    border-bottom: 1px solid #cecece;
+    cursor: default;
+  }
+
+  ul.context-menu li:hover {
+    background-color: #000000;
+  }
+
+    ul.context-menu li span {
+      display: block;
+      padding: 0 5px; 
+      color: #FFF;
+      font-size: 15px;
+      line-height: 20px;
+    }

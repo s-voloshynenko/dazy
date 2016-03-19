@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import Navigation from '../../components/navigation';
+import Navigation from '../navigation';
+import Desktop from '../desktop';
 require('./styles/index.css');
 
 export default class OS extends Component {
-  openContextMenu(e) {
-    console.log(e);
-  }
-
   render() {
     return (
-      <div className="os" onContextMenu={this.openContextMenu}>
+      <div className="os">
         <Navigation />
+        <Desktop />
       </div>
     )
   }

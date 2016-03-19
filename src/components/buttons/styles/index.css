@@ -15,4 +15,10 @@ li.nav-btn {
 
     li.nav-btn ul li {
       background-color: #E64A19;
+      border-bottom: 1px solid #cecece;
+      cursor: default;
+    }
+
+    li.nav-btn ul li:last-child {
+      border-bottom: none;
     }
