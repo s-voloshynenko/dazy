@@ -1,8 +1,25 @@
 table.calendar {
   width: 200px;
-  margin: 5px;
+  margin: 0 5px 5px 5px;
 }
+
+  td.calendar-day-cell {
+    min-width: 30px;
+  }
+
+  input.calendar-month-btn {
+    width: 30px;
+    margin: 0 5px;
+  }
 
   .currentDay {
     background-color: #000000;
+  }
+
+  .pull-left {
+    float: left!important;
+  }
+
+  .pull-right {
+    float: right!important;
   }
