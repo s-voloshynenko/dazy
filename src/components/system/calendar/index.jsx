@@ -3,31 +3,36 @@ import { calculateMonth } from './utils';
 require('./styles/index.css')
 
 export default class Calendar extends Component {
-  changeMonth(date, e, s) {
-    console.log(date, e, s.eventPhase)
-    // this.setState({
-    //   date: date
-    // })
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: new Date(this.props.date)
+    };
+  }
+
+  changeMonth(date) {
+    this.setState({
+      date: new Date(this.state.date.setMonth(this.state.date.getMonth() + (date)))
+    });
   }
 
   renderWeeks() {
-    const month = calculateMonth(this.props.date);
+    const month = calculateMonth(this.state.date);
 
     return (
       <tbody>
         <tr>
-          <td colSpan="3">
-            <input className="pull-right calendar-month-btn"
-                   type="button"
-                   value="<"
-                   ref={"2"}
-                   onClick={this.changeMonth} />
-          </td>
-          <td>
+          <td colSpan="7">
+            <button className="pull calendar-month-btn"
+                   onClick={this.changeMonth.bind(this, -1)}>
+              {'<'}
+            </button>
             {month.monthName}
-          </td>
-          <td colSpan="3">
-            <input className="pull-left calendar-month-btn" type="button" value=">" />
+            <button className="pull calendar-month-btn"
+                   ref={"3"}
+                   onClick={this.changeMonth.bind(this, 1)}>
+              {'>'}
+            </button>
           </td>
         </tr>
         <tr key={month.monthName}>

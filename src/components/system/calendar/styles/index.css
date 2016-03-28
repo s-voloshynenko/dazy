@@ -7,7 +7,7 @@ table.calendar {
     min-width: 30px;
   }
 
-  input.calendar-month-btn {
+  button.calendar-month-btn {
     width: 30px;
     margin: 0 5px;
   }
