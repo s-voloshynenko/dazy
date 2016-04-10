@@ -22,6 +22,9 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract("css-loader")
+    }, {
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      loader: 'file-loader'
     }]
   },
   plugins: [

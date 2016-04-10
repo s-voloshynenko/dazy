@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DesktopContextMenu from '../../components/contextmenu/desktop/index.jsx';
+import DefaultFolder from '../../components/folders/default/index.jsx';
 require('./styles/index.css');
 
 export default class Desktop extends Component {
@@ -10,10 +11,6 @@ export default class Desktop extends Component {
       posX: 0,
       isOpen: false
     };
-  }
-
-  componentWillMount() {
-    document.addEventListener('contextmenu', this.openContextMenu.bind(this));
   }
 
   openContextMenu(e) {
@@ -51,8 +48,9 @@ export default class Desktop extends Component {
 
   render() {
     return (
-      <div className="desktop"
+      <div className="desktop" onContextMenu={this.openContextMenu.bind(this)}
         onClick={this.handleClick.bind(this)}>
+        <DefaultFolder />
         { this.state.isOpen &&
           <DesktopContextMenu
             position={{ posX: this.state.posX, posY: this.state.posY }} />

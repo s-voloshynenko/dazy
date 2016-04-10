@@ -11,6 +11,10 @@
   },
   "author": "Sergey Voloshynenko",
   "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/s-voloshynenko/dazy.git"
+  },
   "devDependencies": {
     "babel-core": "6.7.0",
     "babel-loader": "6.2.4",
@@ -18,6 +22,7 @@
     "babel-preset-react": "6.5.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.10.0",
     "webpack": "^1.12.14"
   },
