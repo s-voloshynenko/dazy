@@ -1,13 +1,37 @@
 import React, { Component } from 'react';
-import FolderIcon from '../../../assets/icons/folder-icon.png';
+import ReactDOM from 'react-dom';
+import FolderIcon from '../../../assets/icons/mini-storage.png';
+import FolderWindow from '../../window/folder';
 require('../styles/index.css');
 
 export default class DefaultFolder extends Component {
+  selectFolder(e) {
+    if (document.selection) {
+      var range = document.body.createTextRange();
+      range.moveToElementText(document.getElementById(e));
+      range.select();
+    } else if (window.getSelection) {
+      var range = document.createRange();
+      range.selectNode(document.getElementById(e));
+      window.getSelection().addRange(range);
+    }
+  }
+
+  openFolder(e) {
+    var bindElement = document.createElement('div');
+    bindElement.setAttribute('id', 'folder-window');
+    document.body.appendChild(bindElement);
+    ReactDOM.render(<FolderWindow />, document.getElementById('folder-window'));
+  }
+
   render() {
     return (
-      <figure className="folder">
-        <p><img src={FolderIcon} alt="" /></p>
-        <figcaption>Notes</figcaption>
+      <figure id="folder1"
+        className="folder"
+        onClick={this.selectFolder.bind(this, 'folder1')}
+        onDoubleClick={this.openFolder.bind(this)}>
+          <p><img src={FolderIcon} alt="" /></p>
+          <figcaption>Notes</figcaption>
       </figure>
     )
   }

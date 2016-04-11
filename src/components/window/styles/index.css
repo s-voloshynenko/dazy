@@ -1,0 +1,15 @@
+.window {
+  height: 400px;
+  width: 600px;
+  content: ' ';
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  z-index: 5;
+  background-color: #cecece;
+}
+
+  .window-nav {
+    height: 20px;
+    background-color: #a9a9a9;
+  }
