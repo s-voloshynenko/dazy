@@ -48,9 +48,9 @@ export default class Desktop extends Component {
 
   render() {
     return (
-      <div className="desktop" onContextMenu={this.openContextMenu.bind(this)}
+      <div id="desktop" onContextMenu={this.openContextMenu.bind(this)}
         onClick={this.handleClick.bind(this)}>
-        <DefaultFolder />
+        <DefaultFolder name="Notes" />
         { this.state.isOpen &&
           <DesktopContextMenu
             position={{ posX: this.state.posX, posY: this.state.posY }} />

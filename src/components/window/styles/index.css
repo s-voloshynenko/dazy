@@ -9,7 +9,23 @@
   background-color: #cecece;
 }
 
-  .window-nav {
+  .window-bar {
     height: 20px;
+    text-align: center;
     background-color: #a9a9a9;
+  }
+
+    .window-bar-btns {
+      float: left;
+      position: absolute; /** without influence on header text */
+    }
+
+    .window-bar-header {
+      line-height: 20px;
+      font-size: 15px;
+    }
+
+  .window-nav {
+    height: 50px;
+    background-color: #d9d9d9;
   }

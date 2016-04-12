@@ -5,6 +5,14 @@ import FolderWindow from '../../window/folder';
 require('../styles/index.css');
 
 export default class DefaultFolder extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: this.props.name
+    };
+  }
+
   selectFolder(e) {
     if (document.selection) {
       var range = document.body.createTextRange();
@@ -18,10 +26,14 @@ export default class DefaultFolder extends Component {
   }
 
   openFolder(e) {
-    var bindElement = document.createElement('div');
-    bindElement.setAttribute('id', 'folder-window');
-    document.body.appendChild(bindElement);
-    ReactDOM.render(<FolderWindow />, document.getElementById('folder-window'));
+    // remove selection
+    window.getSelection().removeAllRanges();
+
+    var windowRoot = document.createElement('div');
+    windowRoot.setAttribute('id', 'folder-window');
+    document.body.appendChild(windowRoot);
+    ReactDOM.render(<FolderWindow name={this.state.name} />,
+                      document.getElementById('folder-window'));
   }
 
   render() {
@@ -31,7 +43,7 @@ export default class DefaultFolder extends Component {
         onClick={this.selectFolder.bind(this, 'folder1')}
         onDoubleClick={this.openFolder.bind(this)}>
           <p><img src={FolderIcon} alt="" /></p>
-          <figcaption>Notes</figcaption>
+          <figcaption>{this.state.name}</figcaption>
       </figure>
     )
   }

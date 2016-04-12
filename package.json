@@ -11,9 +11,9 @@
   },
   "author": "Sergey Voloshynenko",
   "license": "MIT",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/s-voloshynenko/dazy.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s-voloshynenko/dazy.git"
   },
   "devDependencies": {
     "babel-core": "6.7.0",
@@ -31,6 +31,7 @@
     "moment": "^2.12.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
+    "react-draggable": "^1.3.7",
     "react-simple-datepicker": "^0.1.1"
   }
 }

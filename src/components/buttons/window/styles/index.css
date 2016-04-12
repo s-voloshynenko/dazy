@@ -1,4 +1,4 @@
-.window-nav-btn {
+.window-bar-btn {
   height: 20px;
   width: 20px;
   content: ' ';
@@ -7,19 +7,19 @@
   border-right: 1px solid #cecece;
 }
 
-.window-nav-btn:hover {
+.window-bar-btn:hover {
   transform: translateY(0.5px);
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0,0,0,0.19);
 }
 
-  .nav-close {
+  .bar-close {
     background: url('../../../../assets/icons/close.png');
   }
 
-  .nav-fullscreen {
+  .bar-fullscreen {
     background: url('../../../../assets/icons/maximize.png');
   }
 
-  .nav-hide {
+  .bar-hide {
     background: url('../../../../assets/icons/iconify.png');
   }
