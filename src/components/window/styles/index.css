@@ -63,6 +63,27 @@
         border: 1px solid #cecece;
       }
 
+      input.window-nav-file-new {
+        cursor: pointer;
+        height: 40px;
+        width: 40px;
+        background: url('../../../assets/icons/filenew.png') no-repeat center;
+      }
+
+      input.window-nav-file-print {
+        cursor: pointer;
+        height: 40px;
+        width: 40px;
+        background: url('../../../assets/icons/fileprint.png') no-repeat center;
+      }
+
+      input.window-nav-file-delete {
+        cursor: pointer;
+        height: 40px;
+        width: 40px;
+        background: url('../../../assets/icons/filedel.png') no-repeat center;
+      }
+
       input:disabled {
         opacity: 0.3;
       }

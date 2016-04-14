@@ -11,14 +11,31 @@ export default class FolderWindow extends Component {
     super(props);
 
     this.state = {
-      name: this.props.name
+      name: this.props.name,
+      historyBack: [],
+      historyForward: [],
+      childSelected: false
     };
+  }
+
+  handleChildClick(type) {
+    this.setState({
+      childSelected: type
+    });
+  }
+
+  disableChildClick(e) {
+    e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation();
+    this.setState({
+      childSelected: false
+    });
   }
 
   render() {
     return (
       <Draggable handle=".window-bar-header" bounds="#desktop">
-        <div id="test9" className="window">
+        <div id="test9" className="window" onClick={this.disableChildClick.bind(this)}>
           <div className="row">
             <div className="window-bar">
               <div className="window-bar-btns">
@@ -33,10 +50,19 @@ export default class FolderWindow extends Component {
             <div className="window-nav">
               <ul>
                 <li>
-                  <input type="button" className="window-nav-back" />
+                  <input type="button" disabled={!this.state.historyBack.length} className="window-nav-back" />
                 </li>
                 <li>
-                  <input type="button" className="window-nav-forward" />
+                  <input type="button" disabled={!this.state.historyForward.length} className="window-nav-forward" />
+                </li>
+                <li>
+                  <input type="button" className="window-nav-file-new" />
+                </li>
+                <li>
+                  <input type="button" disabled={!this.state.childSelected} className="window-nav-file-print" />
+                </li>
+                <li>
+                  <input type="button" disabled={!this.state.childSelected} className="window-nav-file-delete" />
                 </li>
               </ul>
              </div>
@@ -52,8 +78,8 @@ export default class FolderWindow extends Component {
                 </ul>
               </div>
               <div className="pull-right col-md-9">
-                <File name="help.txt" />
-                <File name="Nodejs.txt" />
+                <File name="help.txt" click={this.handleChildClick.bind(this)} />
+                <File name="Nodejs.txt" click={this.handleChildClick.bind(this)} />
               </div>
             </div>
           </div>

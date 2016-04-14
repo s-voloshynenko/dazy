@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import FolderIcon from '../../../assets/icons/mini-storage.png';
+import FolderIcon from '../../../assets/icons/folder_templates.png';
 import FolderWindow from '../../window/folder';
 require('../styles/index.css');
 

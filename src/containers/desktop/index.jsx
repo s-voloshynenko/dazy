@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DesktopContextMenu from '../../components/contextmenu/desktop/index.jsx';
+import ChatExe from '../../components/files/exe/index.jsx';
 import DefaultFolder from '../../components/folders/default/index.jsx';
 require('./styles/index.css');
 
@@ -51,6 +52,7 @@ export default class Desktop extends Component {
       <div id="desktop" onContextMenu={this.openContextMenu.bind(this)}
         onClick={this.handleClick.bind(this)}>
         <DefaultFolder name="Notes" />
+        <ChatExe />
         { this.state.isOpen &&
           <DesktopContextMenu
             position={{ posX: this.state.posX, posY: this.state.posY }} />
