@@ -11,7 +11,7 @@ export default class CloseWindowButton extends Component {
   }
 
   closeWindow() {
-    window.utils.buttons.bindCloseEvent(this.state.windowId);
+    this.props.close(this.props.windowId);
   }
 
   render() {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DesktopContextMenu from '../../components/contextmenu/desktop/index.jsx';
 import ChatExe from '../../components/files/exe/index.jsx';
 import DefaultFolder from '../../components/folders/default/index.jsx';
+import FolderWindow from '../../components/window/folder';
 require('./styles/index.css');
 
 export default class Desktop extends Component {
@@ -10,7 +11,8 @@ export default class Desktop extends Component {
     this.state = {
       posX: 0,
       posX: 0,
-      isOpen: false
+      isOpen: false,
+      folderWindows: []
     };
   }
 
@@ -26,9 +28,9 @@ export default class Desktop extends Component {
       posx = e.pageX;
       posy = e.pageY;
     } else if (e.clientX || e.clientY) {
-      posx = e.clientX + document.body.scrollLeft + 
+      posx = e.clientX + document.body.scrollLeft +
                          document.documentElement.scrollLeft;
-      posy = e.clientY + document.body.scrollTop + 
+      posy = e.clientY + document.body.scrollTop +
                          document.documentElement.scrollTop;
     }
 
@@ -47,12 +49,40 @@ export default class Desktop extends Component {
     });
   }
 
+  openFolderWindow (name) {
+    const id = Math.floor(+new Date() + Math.random()).toString(36);
+    const newFolderWindow = {
+      id,
+      name,
+      isOpen: true
+    };
+    const folderWindows = this.state.folderWindows.concat([newFolderWindow]);
+    this.setState({
+      folderWindows
+    });
+  }
+
+  closeFolderWindow (id) {
+    const folderWindows = this.state.folderWindows.map(folder => {
+      if (folder.id === id) {
+        folder.isOpen = false;
+      }
+      return folder;
+    });
+    this.setState({
+      folderWindows
+    });
+  }
+
   render() {
     return (
       <div id="desktop" onContextMenu={this.openContextMenu.bind(this)}
         onClick={this.handleClick.bind(this)}>
-        <DefaultFolder name="Notes" />
+        <DefaultFolder name="Notes" openFolder={this.openFolderWindow.bind(this)} />
         <ChatExe />
+
+        { this.state.folderWindows.map(folder => <FolderWindow key={folder.id} folder={folder} close={this.closeFolderWindow.bind(this)} />) }
+
         { this.state.isOpen &&
           <DesktopContextMenu
             position={{ posX: this.state.posX, posY: this.state.posY }} />
