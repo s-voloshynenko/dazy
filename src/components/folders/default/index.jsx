@@ -25,23 +25,14 @@ export default class DefaultFolder extends Component {
     }
   }
 
-  openFolder(e) {
-    // remove selection
-    window.getSelection().removeAllRanges();
-
-    var windowRoot = document.createElement('div');
-    windowRoot.setAttribute('id', 'folder-window');
-    document.body.appendChild(windowRoot);
-    ReactDOM.render(<FolderWindow name={this.state.name} />,
-                      document.getElementById('folder-window'));
-  }
-
   render() {
+    const { openFolder } = this.props;
+
     return (
       <figure id="folder1"
         className="folder"
         onClick={this.selectFolder.bind(this, 'folder1')}
-        onDoubleClick={this.openFolder.bind(this)}>
+        onDoubleClick={openFolder}>
           <p><img src={FolderIcon} alt="" /></p>
           <figcaption>{this.state.name}</figcaption>
       </figure>
