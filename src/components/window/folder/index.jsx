@@ -7,11 +7,10 @@ import Draggable from 'react-draggable';
 require('../styles/index.css');
 
 export default class FolderWindow extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
-      name: this.props.name,
       historyBack: [],
       historyForward: [],
       childSelected: false
@@ -38,7 +37,7 @@ export default class FolderWindow extends Component {
     if (!folder.isOpen) return null;
 
     return (
-      <Draggable bounds="#desktop">
+      <Draggable handle=".window-bar-header" bounds="#desktop">
         <div id="test9" className="window" onClick={this.disableChildClick.bind(this)}>
           <div className="row">
             <div className="window-bar">
@@ -48,7 +47,7 @@ export default class FolderWindow extends Component {
                 <CloseWindowButton windowId={folder.id} close={close} />
               </div>
               <div className="window-bar-header">
-                {this.state.name}
+                {folder.name}
               </div>
             </div>
             <div className="window-nav">

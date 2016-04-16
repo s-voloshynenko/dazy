@@ -5,13 +5,6 @@ import FolderWindow from '../../window/folder';
 require('../styles/index.css');
 
 export default class DefaultFolder extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: this.props.name
-    };
-  }
 
   selectFolder(e) {
     if (document.selection) {
@@ -25,16 +18,19 @@ export default class DefaultFolder extends Component {
     }
   }
 
-  render() {
-    const { openFolder } = this.props;
+  openFolder () {
+    const { openFolder, name } = this.props;
+    openFolder(name);
+  }
 
+  render() {
     return (
       <figure id="folder1"
         className="folder"
         onClick={this.selectFolder.bind(this, 'folder1')}
-        onDoubleClick={openFolder}>
+        onDoubleClick={this.openFolder.bind(this)}>
           <p><img src={FolderIcon} alt="" /></p>
-          <figcaption>{this.state.name}</figcaption>
+          <figcaption>{this.props.name}</figcaption>
       </figure>
     )
   }

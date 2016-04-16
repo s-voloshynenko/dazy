@@ -49,10 +49,11 @@ export default class Desktop extends Component {
     });
   }
 
-  openFolderWindow () {
+  openFolderWindow (name) {
     const id = Math.floor(+new Date() + Math.random()).toString(36);
     const newFolderWindow = {
       id,
+      name,
       isOpen: true
     };
     const folderWindows = this.state.folderWindows.concat([newFolderWindow]);
