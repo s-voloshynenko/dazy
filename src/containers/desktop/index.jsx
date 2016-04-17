@@ -3,6 +3,7 @@ import DesktopContextMenu from '../../components/contextmenu/desktop/index.jsx';
 import ChatExe from '../../components/files/exe/index.jsx';
 import DefaultFolder from '../../components/folders/default/index.jsx';
 import FolderWindow from '../../components/window/folder';
+import ErrorWindow from '../../components/window/error/index.jsx';
 require('./styles/index.css');
 
 export default class Desktop extends Component {
@@ -12,7 +13,8 @@ export default class Desktop extends Component {
       posX: 0,
       posX: 0,
       isOpen: false,
-      folderWindows: []
+      folderWindows: [],
+      errorWindows: []
     };
   }
 
@@ -74,14 +76,22 @@ export default class Desktop extends Component {
     });
   }
 
+  handleChatDoubleClick() {
+    this.setState({
+      errorWindows: [{ id: 'test', message: 'Sorry!' }]
+    })
+  }
+
   render() {
     return (
       <div id="desktop" onContextMenu={this.openContextMenu.bind(this)}
         onClick={this.handleClick.bind(this)}>
         <DefaultFolder name="Notes" openFolder={this.openFolderWindow.bind(this)} />
-        <ChatExe />
+        <ChatExe onDoubleClick={this.handleChatDoubleClick.bind(this)} />
 
         { this.state.folderWindows.map(folder => <FolderWindow key={folder.id} folder={folder} close={this.closeFolderWindow.bind(this)} />) }
+
+        { this.state.errorWindows.map(errorWindow => <ErrorWindow key={errorWindow.id} message={errorWindow.message} />) }
 
         { this.state.isOpen &&
           <DesktopContextMenu

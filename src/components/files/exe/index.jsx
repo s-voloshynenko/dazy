@@ -11,9 +11,14 @@ export default class ChatExe extends Component {
     // };
   }
 
+  handleDoubleClick() {
+    const { onDoubleClick } = this.props;
+    onDoubleClick();
+  }
+
   render() {
     return (
-      <figure className="exe">
+      <figure className="exe" onDoubleClick={this.handleDoubleClick.bind(this)}>
         <p><img src={ChatIcon} alt="" /></p>
         <figcaption>D-Chat</figcaption>
       </figure>
