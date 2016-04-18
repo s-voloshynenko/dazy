@@ -8,22 +8,27 @@ export default class ErrorWindow extends Component {
     super(props);
 
     this.state = {
-      id: this.props.id,
-      message: this.props.message
+      id: this.props.errorWindow.id,
+      title: this.props.errorWindow.title,
+      message: this.props.errorWindow.message
     };
   }
 
   render() {
+    const { close, errorWindow } = this.props;
+
+    if (!errorWindow.isOpen) return null;
+
     return (
       <Draggable handle=".window-bar-header" bounds="#desktop">
-        <div id={this.state.id} className="window" onClick={this.disableChildClick.bind(this)}>
+        <div id={this.state.id} className="window" >
           <div className="row">
             <div className="window-bar">
               <div className="window-bar-btns">
-                <CloseWindowButton windowId={this.state.id} />
+                <CloseWindowButton windowId={this.state.id} close={close} />
               </div>
               <div className="window-bar-header">
-                System error
+                {this.state.title}
               </div>
             </div>
           </div>

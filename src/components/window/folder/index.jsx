@@ -25,7 +25,7 @@ export default class FolderWindow extends Component {
 
   disableChildClick(e) {
     e.stopPropagation();
-        e.nativeEvent.stopImmediatePropagation();
+    e.nativeEvent.stopImmediatePropagation();
     this.setState({
       childSelected: false
     });

@@ -76,9 +76,23 @@ export default class Desktop extends Component {
     });
   }
 
+  closeErrorWindow (id) {
+    const errorWindows = this.state.errorWindows.map((errorWindow) => {
+      if (errorWindow.id === id) {
+        errorWindow.isOpen = false;
+      }
+
+      return errorWindow;
+    });
+
+    this.setState({
+      errorWindows
+    });
+  }
+
   handleChatDoubleClick() {
     this.setState({
-      errorWindows: [{ id: 'test', message: 'Sorry!' }]
+      errorWindows: [{ id: 'error-1', title: 'System error', message: 'Sorry!', isOpen: true }]
     })
   }
 
@@ -91,7 +105,7 @@ export default class Desktop extends Component {
 
         { this.state.folderWindows.map(folder => <FolderWindow key={folder.id} folder={folder} close={this.closeFolderWindow.bind(this)} />) }
 
-        { this.state.errorWindows.map(errorWindow => <ErrorWindow key={errorWindow.id} message={errorWindow.message} />) }
+        { this.state.errorWindows.map(errorWindow => <ErrorWindow key={errorWindow.id} errorWindow={errorWindow} close={this.closeErrorWindow.bind(this)} />) }
 
         { this.state.isOpen &&
           <DesktopContextMenu
