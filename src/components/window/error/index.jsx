@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CloseWindowButton from '../../buttons/window/close';
+import OkButton from '../../buttons/window/ok';
 import Draggable from 'react-draggable';
 require('../styles/index.css');
 
@@ -30,10 +31,16 @@ export default class ErrorWindow extends Component {
               <div className="window-bar-header">
                 {this.state.title}
               </div>
+              <div className="window-content">
+                {this.state.message}
+                <div className="row">
+                  <OkButton windowId={this.state.id} action={close} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </Draggable>
-    )
+    );
   }
 }

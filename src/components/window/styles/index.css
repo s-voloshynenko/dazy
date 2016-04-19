@@ -1,11 +1,11 @@
 .window {
-  min-height: 400px;
-  min-width: 600px;
+  min-height: 100px;
+  width: 600px;
   content: ' ';
   position: absolute;
-  top: 10%;
-  left: 20%;
-  z-index: 5;
+  left: 50%;
+  margin-left: -300px;
+  z-index: 2;
   background-color: #cecece;
 }
 
@@ -96,6 +96,7 @@
       width: 100%;
       min-height: 340px;
       height: 1px;
+      padding: 10px;
     }
 
       .window-menu {

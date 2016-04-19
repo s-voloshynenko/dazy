@@ -23,3 +23,9 @@
   .bar-hide {
     background: url('../../../../assets/icons/iconify.png');
   }
+
+.ok-btn {
+  height: 35px;
+  width: 40px;
+  cursor: pointer;
+}

@@ -92,7 +92,7 @@ export default class Desktop extends Component {
 
   handleChatDoubleClick() {
     this.setState({
-      errorWindows: [{ id: 'error-1', title: 'System error', message: 'Sorry!', isOpen: true }]
+      errorWindows: [{ id: 'error-1', title: 'System error', message: 'Sorry, do something useful. It doesn`t implemented yet..', isOpen: true }]
     })
   }
 

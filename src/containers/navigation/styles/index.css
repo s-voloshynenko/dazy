@@ -13,13 +13,13 @@
 
   .navigation a {
     display: block;
-    padding: 0 20px; 
+    padding: 0 20px;
     color: #FFF;
     font-size: 15px;
     line-height: 20px;
     text-decoration: none;
   }
 
-  .navigation a:hover { 
-    background-color: #000000; 
+  .navigation a:hover {
+    background-color: #000000;
   }

@@ -2,7 +2,7 @@ ul.context-menu {
   position: absolute;
   height: 200px;
   width: 200px;
-  background-color: #E64A19;
+  background-color: #c3c3c3;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -20,7 +20,7 @@ ul.context-menu {
 
     ul.context-menu li span {
       display: block;
-      padding: 0 5px; 
+      padding: 0 5px;
       color: #FFF;
       font-size: 15px;
       line-height: 20px;
