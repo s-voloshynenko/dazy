@@ -1,14 +1,36 @@
 import React, { Component } from 'react';
 import Navigation from '../navigation';
 import Desktop from '../desktop';
+import Loader from '../loader';
 require('./styles/index.css');
 
 export default class OS extends Component {
+  constructor () {
+    super();
+    this.state = {
+      isLoaded: false
+    };
+  }
+
+  init (state) {
+    this.setState({
+      isLoaded: state
+    });
+  }
+
   render() {
     return (
       <div className="os">
-        <Navigation />
-        <Desktop />
+        { this.state.isLoaded &&
+          <div>
+            <Navigation />
+            <Desktop />
+          </div>
+        }
+
+        { !this.state.isLoaded &&
+          <Loader init={this.init.bind(this)} />
+        }
       </div>
     )
   }
