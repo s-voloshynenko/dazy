@@ -17,7 +17,7 @@ export default class Loader extends Component {
     var captionEl = document.getElementById('dazy-input');
     type();
 
-    function type() {
+    function type () {
       captionEl.innerHTML = loaderContent.substr(0, captionLength++);
       captionEl.style.color = acceptebleColors[Math.floor(Math.random() * (6 - 1 + 1)) + 1];
       if (captionLength <= loaderContent.length) {
@@ -25,7 +25,7 @@ export default class Loader extends Component {
       } else {
         captionLength = 0;
         loaderContent = '';
-        _self.onInitEnd();
+        // _self.onInitEnd();
       }
     }
   }
@@ -39,6 +39,9 @@ export default class Loader extends Component {
       <div className="loader">
         <div id="dazy-input">
         </div>
+        <span className="blinking-cursor">
+          |s
+        </span>
       </div>
     )
   }
