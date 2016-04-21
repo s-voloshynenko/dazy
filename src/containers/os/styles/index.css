@@ -114,8 +114,8 @@ hr.divider {
 
 .blinking-cursor {
   font-weight: 100;
-  font-size: 30px;
-  color: #fff!important;
+  font-size: 12px;
+  color: #00FF00!important;
   -webkit-animation: 1s blink step-end infinite;
   -moz-animation: 1s blink step-end infinite;
   -ms-animation: 1s blink step-end infinite;
@@ -125,7 +125,7 @@ hr.divider {
 
 @keyframes "blink" {
   from, to {
-    color: transparent;
+    color: #00FF00;
   }
   50% {
     color: black;
@@ -134,7 +134,7 @@ hr.divider {
 
 @-moz-keyframes blink {
   from, to {
-    color: transparent;
+    color: #00FF00;
   }
   50% {
     color: black;
@@ -143,7 +143,7 @@ hr.divider {
 
 @-webkit-keyframes "blink" {
   from, to {
-    color: transparent;
+    color: #00FF00;
   }
   50% {
     color: black;
@@ -152,7 +152,7 @@ hr.divider {
 
 @-ms-keyframes "blink" {
   from, to {
-    color: transparent;
+    color: #00FF00;
   }
   50% {
     color: black;
@@ -161,7 +161,7 @@ hr.divider {
 
 @-o-keyframes "blink" {
   from, to {
-    color: transparent;
+    color: #00FF00;
   }
   50% {
     color: black;

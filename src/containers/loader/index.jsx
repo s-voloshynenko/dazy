@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 var loaderContent = require('raw!../../assets/templates/loader.txt');
-var acceptebleColors = ['red', 'white', 'green', 'blue', 'pink', 'yellow'];
+var acceptebleColors = ['red', 'white', 'green', 'blue', 'pink', 'yellow', 'purple', 'grey'];
 require('./styles/index.css');
 
 export default class Loader extends Component {
@@ -21,11 +21,15 @@ export default class Loader extends Component {
       captionEl.innerHTML = loaderContent.substr(0, captionLength++);
       captionEl.style.color = acceptebleColors[Math.floor(Math.random() * (6 - 1 + 1)) + 1];
       if (captionLength <= loaderContent.length) {
-        setTimeout(type, 1);
+        setTimeout(type, 2);
       } else {
         captionLength = 0;
         loaderContent = '';
-        // _self.onInitEnd();
+        captionEl.style.color = acceptebleColors[1];
+
+        setTimeout(function () {
+          _self.onInitEnd();
+        }, 2000);
       }
     }
   }
@@ -37,10 +41,10 @@ export default class Loader extends Component {
   render() {
     return (
       <div className="loader">
-        <div id="dazy-input">
-        </div>
+        <span id="dazy-input">
+        </span>
         <span className="blinking-cursor">
-          |s
+          █
         </span>
       </div>
     )
