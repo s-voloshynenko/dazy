@@ -4,7 +4,6 @@ import HideWindowButton from '../../buttons/window/hide';
 import FullScreenButton from '../../buttons/window/fullscreen';
 import CloseWindowButton from '../../buttons/window/close';
 import Draggable from 'react-draggable';
-require('../styles/index.css');
 
 export default class FolderWindow extends Component {
   constructor() {

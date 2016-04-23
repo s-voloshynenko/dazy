@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import Calendar from '../calendar';
-require('./styles/index.css')
 
 export default class Time extends Component {
   constructor(props) {

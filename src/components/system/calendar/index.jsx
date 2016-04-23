@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { calculateMonth } from './utils';
-require('./styles/index.css')
 
 export default class Calendar extends Component {
   constructor(props) {

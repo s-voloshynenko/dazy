@@ -1,0 +1,92 @@
+.window
+  min-height: 100px
+  width: 600px
+  content: ' '
+  position: absolute
+  left: 50%
+  margin-left: -300px
+  z-index: 2
+  background-color: #cecece
+
+.window-bar
+  height: 20px
+  text-align: center
+  background-color: $light-grey
+
+.window-bar-btns
+  float: left
+  position: absolute
+
+.window-bar-header
+  line-height: 20px
+  font-size: 15px
+
+.window-nav
+  height: 40px
+  background-color: #d9d9d9
+
+.window-nav ul,
+.window-content ul
+  margin: 0
+  padding: 0
+  list-style: none
+
+.window-nav ul > li
+  display: inline-block
+  border-right: 1px solid #c9c9c9
+
+input.window-nav-back
+  cursor: pointer
+  height: 40px
+  width: 40px
+  background: url('~/../assets/icons/back.png') no-repeat center
+
+input.window-nav-forward
+  cursor: pointer
+  height: 40px
+  width: 40px
+  background: url('~/../assets/icons/forward.png') no-repeat center
+
+input.window-menu-option
+  cursor: pointer
+  height: 20px
+  width: 100%
+  border: 1px solid #cecece
+
+input.window-nav-file-new
+  cursor: pointer
+  height: 40px
+  width: 40px
+  background: url('~/../assets/icons/filenew.png') no-repeat center
+
+input.window-nav-file-print
+  cursor: pointer
+  height: 40px
+  width: 40px
+  background: url('~/../assets/icons/fileprint.png') no-repeat center
+
+input.window-nav-file-delete
+  cursor: pointer
+  height: 40px
+  width: 40px
+  background: url('~/../assets/icons/filedel.png') no-repeat center
+
+input:disabled
+  opacity: 0.3
+
+.window-content
+  clear: both
+  display: table
+  content: " "
+  box-sizing: border-box
+  width: 100%
+  min-height: 340px
+  height: 1px
+  padding: 10px
+
+.window-menu
+  background-color: #fff
+  height: 100%
+
+.window-menu ul > li
+  height: 20px

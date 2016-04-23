@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CloseWindowButton from '../../buttons/window/close';
 import OkButton from '../../buttons/window/ok';
 import Draggable from 'react-draggable';
-require('../styles/index.css');
 
 export default class ErrorWindow extends Component {
   constructor(props) {

@@ -1,21 +1,21 @@
 li.nav-btn
   display: inline-block
 
-  &ul
+  &:hover > ul
+    display: inherit
+
+  & ul
     display: none
     position: absolute
     top: 20px
 
-  &:hover > ul
-    display: inherit
+  & ul li
+    background-color: #a9a9a9
+    border-bottom: 1px solid #cecece
+    cursor: default
 
-    &ul li
-      background-color: #a9a9a9
-      border-bottom: 1px solid #cecece
-      cursor: default
-
-      &:last-child
-        border-bottom: none
+    &:last-child
+      border-bottom: none
 
 .window-bar-btn
   height: 20px
@@ -25,19 +25,18 @@ li.nav-btn
   cursor: pointer
   border-right: 1px solid #cecece
 
-
   &:hover
     transform: translateY(0.5px)
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0,0,0,0.19)
 
-  .bar-close
-    background: url('../../../../assets/icons/close.png')
+  &.bar-close
+    background: url('~/../assets/icons/close.png')
 
-  .bar-fullscreen
-    background: url('../../../../assets/icons/maximize.png')
+  &.bar-fullscreen
+    background: url('~/../assets/icons/maximize.png')
 
-  .bar-hide
-    background: url('../../../../assets/icons/iconify.png')
+  &.bar-hide
+    background: url('~/../assets/icons/iconify.png')
 
 .ok-btn
   height: 35px
