@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import FolderIcon from '../../../assets/icons/folder_templates.png';
 import FolderWindow from '../../window/folder';
-require('../styles/index.css');
 
 export default class DefaultFolder extends Component {
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-require('../styles/index.css');
 
 export default class DesktopContextMenu extends Component {
   constructor(props) {

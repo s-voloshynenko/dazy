@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ChatIcon from '../../../assets/icons/Workgroup.png';
-require('../styles/index.css');
 
 export default class ChatExe extends Component {
   constructor(props) {

@@ -2,7 +2,8 @@
 
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const cssLoader = 'style-loader!css-loader!autoprefixer-loader?browsers=last 2 versions';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
@@ -21,8 +22,11 @@ module.exports = {
       loader: 'babel'
     }, {
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract("css-loader")
+      loader: cssLoader
     }, {
+      test: /\.sass$/,
+      loader: cssLoader + '!sass-loader?indentedSyntax=sass'
+    },{
       test: /\.(jpe?g|png|gif|svg)$/i,
       loader: 'file-loader'
     }]
@@ -32,7 +36,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html'
-    }),
-    new ExtractTextPlugin("style.css", { allChunks: true })
+    })
   ]
 };

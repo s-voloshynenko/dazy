@@ -4,7 +4,6 @@ import ChatExe from '../../components/files/exe/index.jsx';
 import DefaultFolder from '../../components/folders/default/index.jsx';
 import FolderWindow from '../../components/window/folder';
 import ErrorWindow from '../../components/window/error/index.jsx';
-require('./styles/index.css');
 
 export default class Desktop extends Component {
   constructor(props) {

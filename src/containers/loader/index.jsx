@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 var loaderContent = require('raw!../../assets/templates/loader.txt');
 var acceptebleColors = ['red', 'white', 'green', 'blue', 'pink', 'yellow', 'purple', 'grey'];
-require('./styles/index.css');
 
 export default class Loader extends Component {
   onInitEnd () {

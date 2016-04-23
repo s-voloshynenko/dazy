@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Navigation from '../navigation';
 import Desktop from '../desktop';
 import Loader from '../loader';
-require('./styles/index.css');
 
 export default class OS extends Component {
   constructor () {

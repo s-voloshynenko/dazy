@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import OS from './containers/os';
-import * as test from './utils';
+require('./styles/main.sass');
 
 ReactDOM.render(
   <OS />,
