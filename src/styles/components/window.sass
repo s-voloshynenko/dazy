@@ -1,3 +1,9 @@
+$backBtnImg: "../assets/icons/back.png"
+$forwardBtnImg: "../assets/icons/forward.png"
+$fileNewBtnImg: "../assets/icons/filenew.png"
+$filePrintBtnImg: "../assets/icons/fileprint.png"
+$fileDel: "../assets/icons/filedel.png"
+
 .window
   min-height: 100px
   width: 600px
@@ -39,13 +45,13 @@ input.window-nav-back
   cursor: pointer
   height: 40px
   width: 40px
-  background: url('~/../assets/icons/back.png') no-repeat center
+  background: url(#{$backBtnImg}) no-repeat center
 
 input.window-nav-forward
   cursor: pointer
   height: 40px
   width: 40px
-  background: url('~/../assets/icons/forward.png') no-repeat center
+  background: url(#{$forwardBtnImg}) no-repeat center
 
 input.window-menu-option
   cursor: pointer
@@ -57,19 +63,19 @@ input.window-nav-file-new
   cursor: pointer
   height: 40px
   width: 40px
-  background: url('~/../assets/icons/filenew.png') no-repeat center
+  background: url(#{$fileNewBtnImg}) no-repeat center
 
 input.window-nav-file-print
   cursor: pointer
   height: 40px
   width: 40px
-  background: url('~/../assets/icons/fileprint.png') no-repeat center
+  background: url(#{$filePrintBtnImg}) no-repeat center
 
 input.window-nav-file-delete
   cursor: pointer
   height: 40px
   width: 40px
-  background: url('~/../assets/icons/filedel.png') no-repeat center
+  background: url(#{$fileDel}) no-repeat center
 
 input:disabled
   opacity: 0.3

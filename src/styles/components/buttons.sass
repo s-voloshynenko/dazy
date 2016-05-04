@@ -1,3 +1,7 @@
+$closeBtnImg: "../assets/icons/close.png"
+$fullScreenBtnImg: "../assets/icons/maximize.png"
+$hideBtnImg: "../assets/icons/iconify.png"
+
 li.nav-btn
   display: inline-block
 
@@ -30,13 +34,13 @@ li.nav-btn
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0,0,0,0.19)
 
   &.bar-close
-    background: url('~/../assets/icons/close.png')
+    background: url(#{$closeBtnImg})
 
   &.bar-fullscreen
-    background: url('~/../assets/icons/maximize.png')
+    background: url(#{$fullScreenBtnImg})
 
   &.bar-hide
-    background: url('~/../assets/icons/iconify.png')
+    background: url(#{$hideBtnImg})
 
 .ok-btn
   height: 35px
