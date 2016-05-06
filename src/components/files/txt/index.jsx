@@ -17,9 +17,15 @@ export default class DefaultFolder extends Component {
     this.state.click(true);
   }
 
+  openTxtFile(e) {
+    
+  }
+
   render() {
     return (
-      <figure onClick={this.handleClick.bind(this)} className="file">
+      <figure className="file"
+              onClick={this.handleClick.bind(this)}
+              onDoubleClick={this.openTxtFile.bind(this)} >
         <p><img src={FolderIcon} alt="" /></p>
         <figcaption>{this.state.name}</figcaption>
       </figure>
