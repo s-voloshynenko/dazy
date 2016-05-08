@@ -7,7 +7,8 @@ export default class OS extends Component {
   constructor () {
     super();
     this.state = {
-      isLoaded: false
+      isLoaded: false,
+      navType: 'desktop'
     };
   }
 
@@ -22,7 +23,8 @@ export default class OS extends Component {
       <div className="os">
         { this.state.isLoaded &&
           <div>
-            <Navigation />
+            <Navigation
+              type={this.state.navType} />
             <Desktop />
           </div>
         }

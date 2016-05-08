@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import FileBtn from '../../components/buttons/file';
-import EditBtn from '../../components/buttons/edit';
-import PreferencesBtn from '../../components/buttons/preferences';
-import Time from '../../components/system/time';
+import DesktopNav from './desktop';
+import FileNav from './file';
 
 export default class Navigation extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      type: this.props.type
+    };
+  }
+
   render() {
     return (
       <div className="navigation">
-        <ul>
-          <FileBtn />
-          <EditBtn />
-          <PreferencesBtn />
-          <Time />
-        </ul>
+        {this.state.type === 'desktop' &&
+          <DesktopNav />
+        }
+        {this.state.type === 'file' &&
+          <FileNav />
+        }
       </div>
     )
   }
