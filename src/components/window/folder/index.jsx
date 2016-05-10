@@ -17,14 +17,21 @@ export default class FolderWindow extends Component {
   }
 
   handleChildClick(type) {
+    console.log('lololo')
     this.setState({
       childSelected: type
     });
   }
 
+  handleFileDoubleClick() {
+    console.log('test')
+    // test
+    // this.props.openFile('help.txt', 'txt', 'test');
+  }
+
   disableChildClick(e) {
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
+    // e.stopPropagation();
+    // e.nativeEvent.stopImmediatePropagation();
     this.setState({
       childSelected: false
     });
@@ -80,8 +87,12 @@ export default class FolderWindow extends Component {
                 </ul>
               </div>
               <div className="pull-right col-md-9">
-                <File name="help.txt" click={this.handleChildClick.bind(this)} />
-                <File name="Nodejs.txt" click={this.handleChildClick.bind(this)} />
+                <File file={{ name: "help.txt", type: "txt", data: 'test' }}
+                      click={this.handleChildClick.bind(this)}
+                      open={this.props.openFile} />
+                <File file={{ name: "Nodejs.txt", type: "txt", data: 'test' }}
+                      click={this.handleChildClick.bind(this)}
+                      open={this.props.openFile} />
               </div>
             </div>
           </div>

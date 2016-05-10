@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import FolderIcon from '../../../assets/icons/txt.png';
 
-export default class DefaultFolder extends Component {
+export default class DefaultFile extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: this.props.name,
-      click: this.props.click
+      file: this.props.file,
+      click: this.props.click,
+      open: this.props.open
     };
   }
 
@@ -18,7 +19,8 @@ export default class DefaultFolder extends Component {
   }
 
   openTxtFile(e) {
-    
+    const { file, open } = this.state;
+    open(file.name, file.type, file.data);
   }
 
   render() {
@@ -27,7 +29,7 @@ export default class DefaultFolder extends Component {
               onClick={this.handleClick.bind(this)}
               onDoubleClick={this.openTxtFile.bind(this)} >
         <p><img src={FolderIcon} alt="" /></p>
-        <figcaption>{this.state.name}</figcaption>
+        <figcaption>{this.state.file.name}</figcaption>
       </figure>
     )
   }

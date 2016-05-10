@@ -6,23 +6,22 @@ import CloseWindowButton from '../../buttons/window/close';
 import TxtWindow from './txt';
 
 export default class FileWindow extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      type: this.props.type,
       fileWindow: this.props.fileWindow
     };
   }
 
   render() {
-    const { folder, close } = this.props;
+    const { fileWindow, close } = this.props;
 
-    if (!folder.isOpen) return null;
+    if (!fileWindow.isOpen) return null;
 
     return (
       <Draggable handle=".window-bar-header" bounds="#desktop">
-        <div id={this.state.fileWindow.id} className="window" onClick={this.disableChildClick.bind(this)}>
+        <div id={this.state.fileWindow.id} className="window">
           <div className="row">
             <div className="window-bar">
               <div className="window-bar-btns">
@@ -35,7 +34,7 @@ export default class FileWindow extends Component {
               </div>
             </div>
           </div>
-          { this.state.type === 'txt' &&
+          { this.state.fileWindow.type === 'txt' &&
             <TxtWindow data={this.state.fileWindow.data} />
           }
         </div>

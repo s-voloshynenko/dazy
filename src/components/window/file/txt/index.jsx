@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 export default class TxtWindow extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       data: this.props.data

@@ -66,12 +66,13 @@ export default class Desktop extends Component {
   }
 
   openFileWindow (name, type, data) {
+    console.log('lol', name, type, data)
     const id = Math.floor(+new Date() + Math.random()).toString(36);
     const newFileWindow = {
       id,
       name,
       type,
-      data: 'test data',
+      data,
       isOpen: true
     };
     const fileWindows = this.state.fileWindows.concat([newFileWindow]);
@@ -131,15 +132,26 @@ export default class Desktop extends Component {
       <div id="desktop" onContextMenu={this.openContextMenu.bind(this)}
         onClick={this.handleClick.bind(this)}>
         <DefaultFolder name="Notes"
-                       openFolder={this.openFolderWindow.bind(this)}
-                       openFile={this.openFileWindow.bind(this)} />
+                       openFolder={this.openFolderWindow.bind(this)} />
         <ChatExe onDoubleClick={this.handleChatDoubleClick.bind(this)} />
 
-        { this.state.folderWindows.map(folder => <FolderWindow key={folder.id} folder={folder} close={this.closeFolderWindow.bind(this)} />) }
+        { this.state.folderWindows.map(folder =>
+            <FolderWindow key={folder.id}
+                          folder={folder}
+                          close={this.closeFolderWindow.bind(this)}
+                          openFile={this.openFileWindow.bind(this)} />)
+        }
 
-        { this.state.fileWindows.map(fileWindow => <FileWindow key={fileWindow.id} fileWindow={fileWindow} close={this.closeFileWindow.bind(this)} />) }
+        { this.state.fileWindows.map(fileWindow =>
+            <FileWindow key={fileWindow.id}
+                        fileWindow={fileWindow}
+                        close={this.closeFileWindow.bind(this)} />)
+        }
 
-        { this.state.errorWindows.map(errorWindow => <ErrorWindow key={errorWindow.id} errorWindow={errorWindow} close={this.closeErrorWindow.bind(this)} />) }
+        { this.state.errorWindows.map(errorWindow =>
+            <ErrorWindow key={errorWindow.id}
+                         errorWindow={errorWindow}
+                         close={this.closeErrorWindow.bind(this)} />) }
 
         { this.state.isOpen &&
           <DesktopContextMenu
