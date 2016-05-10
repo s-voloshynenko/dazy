@@ -3,6 +3,7 @@ import DesktopContextMenu from '../../components/contextmenu/desktop/index.jsx';
 import ChatExe from '../../components/files/exe/index.jsx';
 import DefaultFolder from '../../components/folders/default/index.jsx';
 import FolderWindow from '../../components/window/folder';
+import FileWindow from '../../components/window/file';
 import ErrorWindow from '../../components/window/error/index.jsx';
 
 export default class Desktop extends Component {
@@ -13,6 +14,7 @@ export default class Desktop extends Component {
       posX: 0,
       isOpen: false,
       folderWindows: [],
+      fileWindows: [],
       errorWindows: []
     };
   }
@@ -63,6 +65,21 @@ export default class Desktop extends Component {
     });
   }
 
+  openFileWindow (name, type, data) {
+    const id = Math.floor(+new Date() + Math.random()).toString(36);
+    const newFileWindow = {
+      id,
+      name,
+      type,
+      data: 'test data',
+      isOpen: true
+    };
+    const fileWindows = this.state.fileWindows.concat([newFileWindow]);
+    this.setState({
+      fileWindows
+    });
+  }
+
   closeFolderWindow (id) {
     const folderWindows = this.state.folderWindows.map(folder => {
       if (folder.id === id) {
@@ -89,6 +106,20 @@ export default class Desktop extends Component {
     });
   }
 
+  closeFileWindow (id) {
+    const fileWindows = this.state.fileWindows.map((fileWindow) => {
+      if (fileWindow.id === id) {
+        fileWindow.isOpen = false;
+      }
+
+      return fileWindow;
+    });
+
+    this.setState({
+      fileWindows
+    });
+  }
+
   handleChatDoubleClick() {
     this.setState({
       errorWindows: [{ id: 'error-1', title: 'System error', message: 'Sorry, do something useful. It doesn`t implemented yet..', isOpen: true }]
@@ -99,10 +130,14 @@ export default class Desktop extends Component {
     return (
       <div id="desktop" onContextMenu={this.openContextMenu.bind(this)}
         onClick={this.handleClick.bind(this)}>
-        <DefaultFolder name="Notes" openFolder={this.openFolderWindow.bind(this)} />
+        <DefaultFolder name="Notes"
+                       openFolder={this.openFolderWindow.bind(this)}
+                       openFile={this.openFileWindow.bind(this)} />
         <ChatExe onDoubleClick={this.handleChatDoubleClick.bind(this)} />
 
         { this.state.folderWindows.map(folder => <FolderWindow key={folder.id} folder={folder} close={this.closeFolderWindow.bind(this)} />) }
+
+        { this.state.fileWindows.map(fileWindow => <FileWindow key={fileWindow.id} fileWindow={fileWindow} close={this.closeFileWindow.bind(this)} />) }
 
         { this.state.errorWindows.map(errorWindow => <ErrorWindow key={errorWindow.id} errorWindow={errorWindow} close={this.closeErrorWindow.bind(this)} />) }
 
