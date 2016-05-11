@@ -17,16 +17,9 @@ export default class FolderWindow extends Component {
   }
 
   handleChildClick(type) {
-    console.log('lololo')
     this.setState({
       childSelected: type
     });
-  }
-
-  handleFileDoubleClick() {
-    console.log('test')
-    // test
-    // this.props.openFile('help.txt', 'txt', 'test');
   }
 
   disableChildClick(e) {
@@ -38,12 +31,16 @@ export default class FolderWindow extends Component {
   }
 
   render() {
-    const { folder, close } = this.props;
+    const { hoist, folder, close } = this.props;
 
     if (!folder.isOpen) return null;
 
     return (
-      <Draggable handle=".window-bar-header" bounds="#desktop">
+      <Draggable handle=".window-bar-header"
+                 bounds="#desktop">
+      <div className="window-wrap"
+           onClick={hoist.bind(this, folder.id)}
+           style={{zIndex: folder.zIndex}}>
         <div id="test9" className="window" onClick={this.disableChildClick.bind(this)}>
           <div className="row">
             <div className="window-bar">
@@ -97,6 +94,7 @@ export default class FolderWindow extends Component {
             </div>
           </div>
         </div>
+      </div>
       </Draggable>
     )
   }

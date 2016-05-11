@@ -15,12 +15,16 @@ export default class FileWindow extends Component {
   }
 
   render() {
-    const { fileWindow, close } = this.props;
+    const { hoist, fileWindow, close } = this.props;
 
     if (!fileWindow.isOpen) return null;
 
     return (
-      <Draggable handle=".window-bar-header" bounds="#desktop">
+      <Draggable handle=".window-bar-header"
+                 bounds="#desktop">
+        <div className="window-wrap"
+             onClick={hoist.bind(this, this.state.fileWindow.id)}
+             style={{zIndex: fileWindow.zIndex}}>
         <div id={this.state.fileWindow.id} className="window">
           <div className="row">
             <div className="window-bar">
@@ -37,6 +41,7 @@ export default class FileWindow extends Component {
           { this.state.fileWindow.type === 'txt' &&
             <TxtWindow data={this.state.fileWindow.data} />
           }
+        </div>
         </div>
       </Draggable>
     )

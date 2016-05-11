@@ -57,6 +57,7 @@ export default class Desktop extends Component {
     const newFolderWindow = {
       id,
       name,
+      zIndex: 9999,
       isOpen: true
     };
     const folderWindows = this.state.folderWindows.concat([newFolderWindow]);
@@ -66,13 +67,13 @@ export default class Desktop extends Component {
   }
 
   openFileWindow (name, type, data) {
-    console.log('lol', name, type, data)
     const id = Math.floor(+new Date() + Math.random()).toString(36);
     const newFileWindow = {
       id,
       name,
       type,
       data,
+      zIndex: 9999,
       isOpen: true
     };
     const fileWindows = this.state.fileWindows.concat([newFileWindow]);
@@ -88,6 +89,7 @@ export default class Desktop extends Component {
       }
       return folder;
     });
+
     this.setState({
       folderWindows
     });
@@ -121,9 +123,57 @@ export default class Desktop extends Component {
     });
   }
 
+  hoistWindow(id, e) {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+
+    // LOL, TODO: refactor
+    const errorWindows = this.state.errorWindows.map((errorWindow) => {
+      if (errorWindow.id === id) {
+        errorWindow.zIndex = 9999;
+      } else {
+        errorWindow.zIndex = 1;
+      }
+
+      return errorWindow;
+    });
+
+    const fileWindows = this.state.fileWindows.map((fileWindow) => {
+      if (fileWindow.id === id) {
+        fileWindow.zIndex = 9999;
+      } else {
+        fileWindow.zIndex = 1;
+      }
+
+      return fileWindow;
+    });
+
+    const folderWindows = this.state.folderWindows.map(folder => {
+      if (folder.id === id) {
+        folder.zIndex = 9999;
+      } else {
+        folder.zIndex = 1;
+      }
+
+      return folder;
+    });
+
+    this.setState({
+      errorWindows,
+      fileWindows,
+      folderWindows
+    });
+  }
+
   handleChatDoubleClick() {
     this.setState({
-      errorWindows: [{ id: 'error-1', title: 'System error', message: 'Sorry, do something useful. It doesn`t implemented yet..', isOpen: true }]
+      errorWindows: [{
+        id: 'error-1',
+        title: 'System error',
+        message: 'Sorry, do something useful. It doesn`t implemented yet..',
+        zIndex: 9999,
+        isOpen: true
+      }]
     })
   }
 
@@ -138,6 +188,7 @@ export default class Desktop extends Component {
         { this.state.folderWindows.map(folder =>
             <FolderWindow key={folder.id}
                           folder={folder}
+                          hoist={this.hoistWindow.bind(this)}
                           close={this.closeFolderWindow.bind(this)}
                           openFile={this.openFileWindow.bind(this)} />)
         }
@@ -145,12 +196,14 @@ export default class Desktop extends Component {
         { this.state.fileWindows.map(fileWindow =>
             <FileWindow key={fileWindow.id}
                         fileWindow={fileWindow}
+                        hoist={this.hoistWindow.bind(this)}
                         close={this.closeFileWindow.bind(this)} />)
         }
 
         { this.state.errorWindows.map(errorWindow =>
             <ErrorWindow key={errorWindow.id}
                          errorWindow={errorWindow}
+                         hoist={this.hoistWindow.bind(this)}
                          close={this.closeErrorWindow.bind(this)} />) }
 
         { this.state.isOpen &&

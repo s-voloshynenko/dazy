@@ -15,12 +15,16 @@ export default class ErrorWindow extends Component {
   }
 
   render() {
-    const { close, errorWindow } = this.props;
+    const { hoist, close, errorWindow } = this.props;
 
     if (!errorWindow.isOpen) return null;
 
     return (
-      <Draggable handle=".window-bar-header" bounds="#desktop">
+      <Draggable handle=".window-bar-header"
+                 bounds="#desktop">
+        <div className="window-wrap"
+             onClick={hoist.bind(this, 'test')}
+             style={{zIndex: errorWindow.zIndex}}>
         <div id={this.state.id} className="window" >
           <div className="row">
             <div className="window-bar">
@@ -38,6 +42,7 @@ export default class ErrorWindow extends Component {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </Draggable>
     );
