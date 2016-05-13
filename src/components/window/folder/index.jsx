@@ -5,6 +5,8 @@ import FullScreenButton from '../../buttons/window/fullscreen';
 import CloseWindowButton from '../../buttons/window/close';
 import Draggable from 'react-draggable';
 
+var nodejsLogo = require('raw!../../../assets/templates/nodejslogo.txt');
+
 export default class FolderWindow extends Component {
   constructor() {
     super();
@@ -87,7 +89,7 @@ export default class FolderWindow extends Component {
                 <File file={{ name: "help.txt", type: "txt", data: 'test' }}
                       click={this.handleChildClick.bind(this)}
                       open={this.props.openFile} />
-                <File file={{ name: "Nodejs.txt", type: "txt", data: 'test' }}
+                <File file={{ name: "Nodejs.txt", type: "txt", data: nodejsLogo }}
                       click={this.handleChildClick.bind(this)}
                       open={this.props.openFile} />
               </div>

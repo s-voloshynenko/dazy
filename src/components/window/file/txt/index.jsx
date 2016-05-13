@@ -11,8 +11,8 @@ export default class TxtWindow extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.data}
+      <div dangerouslySetInnerHTML={{__html: this.state.data}}>
+
       </div>
     )
   }
