@@ -52,8 +52,9 @@ export default class Calendar extends Component {
 
   renderDays(week) {
     return week.map((day, i) => {
+      let className = "calendar-date-cell";
       return (
-        <td key={i} className={day.type === 1 ? 'currentDay' : ''}>
+        <td key={i} className={day.type === 1 ? className + ' currentDay' : className}>
           {day.value}
         </td>
       );

@@ -1,6 +1,7 @@
 $closeBtnImg: "../assets/icons/close.png"
 $fullScreenBtnImg: "../assets/icons/maximize.png"
 $hideBtnImg: "../assets/icons/iconify.png"
+$chargeBtn: "../assets/icons/mini-connectors.png"
 
 li.nav-btn
   display: inline-block
@@ -14,7 +15,7 @@ li.nav-btn
     top: 20px
 
   & ul li
-    background-color: #a9a9a9
+    background-color: $teal-700
     border-bottom: 1px solid #cecece
     cursor: default
 
@@ -45,4 +46,12 @@ li.nav-btn
 .ok-btn
   height: 35px
   width: 40px
+  cursor: pointer
+
+button.charge-btn
+  background: url(#{$chargeBtn}) no-repeat center
+  background-size: 18px 18px
+  width: 20px
+  height: 20px
+  border: none
   cursor: pointer

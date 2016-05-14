@@ -2,15 +2,18 @@ table.calendar
   width: 200px
   margin: 0 5px 5px 5px
 
-
   & td.calendar-day-cell
     min-width: 30px
 
+  & td.calendar-date-cell
+    cursor: pointer
+
+  & td.calendar-date-cell:hover
+    background-color: $teal-600
 
   & button.calendar-month-btn
     width: 30px
     margin: 0 5px
 
-
 .currentDay
-  background-color: #000000
+  background-color: $teal-200

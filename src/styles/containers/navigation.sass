@@ -1,5 +1,5 @@
 .navigation
-  background-color: #448080
+  background-color: $teal-500
   color: #FFFFFF
 
   & ul
@@ -18,4 +18,22 @@
     text-decoration: none
 
   & a:hover
-    background-color: #000000
+    background-color: $teal-200
+
+  .charge-nav
+    float: right
+    display: inline-block
+
+    &:hover > ul
+      display: inherit
+
+    & ul
+      display: none
+      position: absolute
+      top: 20px
+      right: 0px
+
+      & li
+        background-color: $teal-700
+        width: 240px
+        text-align: center

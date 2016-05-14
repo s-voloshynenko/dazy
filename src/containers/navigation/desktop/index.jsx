@@ -3,6 +3,7 @@ import FileBtn from '../../../components/buttons/file';
 import EditBtn from '../../../components/buttons/edit';
 import PreferencesBtn from '../../../components/buttons/preferences';
 import Time from '../../../components/system/time';
+import ChargeBtn from '../../../components/buttons/charge';
 
 
 export default class DesktopNav extends Component {
@@ -13,6 +14,7 @@ export default class DesktopNav extends Component {
         <EditBtn />
         <PreferencesBtn />
         <Time />
+        <ChargeBtn />
       </ul>
     );
   }

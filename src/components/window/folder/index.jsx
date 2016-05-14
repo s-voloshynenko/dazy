@@ -5,7 +5,7 @@ import FullScreenButton from '../../buttons/window/fullscreen';
 import CloseWindowButton from '../../buttons/window/close';
 import Draggable from 'react-draggable';
 
-var nodejsLogo = require('raw!../../../assets/templates/nodejslogo.txt');
+var nodejsLogo = require('raw!../../../assets/content/nodejs.txt');
 
 export default class FolderWindow extends Component {
   constructor() {

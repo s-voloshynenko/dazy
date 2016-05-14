@@ -11,7 +11,7 @@ export default class TxtWindow extends Component {
 
   render() {
     return (
-      <div dangerouslySetInnerHTML={{__html: this.state.data}}>
+      <div className="txt-content" dangerouslySetInnerHTML={{__html: this.state.data}}>
 
       </div>
     )
