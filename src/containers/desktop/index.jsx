@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DesktopContextMenu from '../../components/contextmenu/desktop/index.jsx';
 import ChatExe from '../../components/files/exe/index.jsx';
+import TerminalExe from '../../components/files/exe/terminal'
 import DefaultFolder from '../../components/folders/default/index.jsx';
 import FolderWindow from '../../components/window/folder';
 import FileWindow from '../../components/window/file';
@@ -177,6 +178,10 @@ export default class Desktop extends Component {
     })
   }
 
+  handleTerminalDoubleClick() {
+    
+  }
+
   render() {
     return (
       <div id="desktop" onContextMenu={this.openContextMenu.bind(this)}
@@ -184,6 +189,7 @@ export default class Desktop extends Component {
         <DefaultFolder name="Notes"
                        openFolder={this.openFolderWindow.bind(this)} />
         <ChatExe onDoubleClick={this.handleChatDoubleClick.bind(this)} />
+        <TerminalExe onDoubleClick={this.handleTerminalDoubleClick.bind(this)} />
 
         { this.state.folderWindows.map(folder =>
             <FolderWindow key={folder.id}
