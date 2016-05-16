@@ -16,13 +16,19 @@
     font-size: 15px
     line-height: 20px
     text-decoration: none
+    cursor: pointer
 
   & a:hover
     background-color: $teal-200
 
-  .charge-nav
+  .charge-nav,
+  .preferences-nav
     float: right
     display: inline-block
+
+    & > a
+      width: 20px
+      padding: 0
 
     &:hover > ul
       display: inherit
@@ -36,4 +42,8 @@
       & li
         background-color: $teal-700
         width: 240px
-        text-align: center
+        text-align: left
+        border-bottom: 1px solid #cecece
+
+        &:last-child
+          border-bottom: none
