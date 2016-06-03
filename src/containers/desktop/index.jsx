@@ -179,14 +179,15 @@ export default class Desktop extends Component {
   }
 
   handleTerminalDoubleClick() {
-    
+
   }
 
   render() {
     return (
       <div id="desktop" onContextMenu={this.openContextMenu.bind(this)}
         onClick={this.handleClick.bind(this)}>
-        <DefaultFolder name="Notes"
+        <DefaultFolder id="desktop-notes"
+                       name="Notes"
                        openFolder={this.openFolderWindow.bind(this)} />
         <ChatExe onDoubleClick={this.handleChatDoubleClick.bind(this)} />
         <TerminalExe onDoubleClick={this.handleTerminalDoubleClick.bind(this)} />

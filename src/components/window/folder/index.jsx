@@ -1,38 +1,40 @@
 import React, { Component } from 'react';
-import File from '../../files/txt';
 import HideWindowButton from '../../buttons/window/hide';
 import FullScreenButton from '../../buttons/window/fullscreen';
 import CloseWindowButton from '../../buttons/window/close';
+/** Routers */
+import RouteIndex from './router/index.jsx';
 import Draggable from 'react-draggable';
 
-var nodejsLogo = require('raw!../../../assets/content/nodejs.txt');
-
 export default class FolderWindow extends Component {
-  constructor() {
+  constructor () {
     super();
 
     this.state = {
       historyBack: [],
       historyForward: [],
-      childSelected: false
+      childSelected: false,
+      route: 'index'
     };
   }
 
-  handleChildClick(type) {
+  handleChildClick (type) {
     this.setState({
       childSelected: type
     });
   }
 
-  disableChildClick(e) {
-    // e.stopPropagation();
-    // e.nativeEvent.stopImmediatePropagation();
+  disableChildClick (e) {
     this.setState({
       childSelected: false
     });
   }
 
-  render() {
+  changeRoute () {
+
+  }
+
+  render () {
     const { hoist, folder, close } = this.props;
 
     if (!folder.isOpen) return null;
@@ -85,13 +87,14 @@ export default class FolderWindow extends Component {
                   </li>
                 </ul>
               </div>
-              <div className="pull-right col-md-9">
-                <File file={{ name: "help.txt", type: "txt", data: 'test' }}
-                      click={this.handleChildClick.bind(this)}
-                      open={this.props.openFile} />
-                <File file={{ name: "Nodejs.txt", type: "txt", data: nodejsLogo }}
-                      click={this.handleChildClick.bind(this)}
-                      open={this.props.openFile} />
+              <div className="pull-right col-md-9 window-container">
+                {this.state.route === 'index' &&
+                  <RouteIndex handlers={{
+                      handleChildClick: this.handleChildClick.bind(this),
+                      openFile: this.props.openFile,
+                      changeRoute: this.changeRoute.bind(this)
+                  }} />
+                }
               </div>
             </div>
           </div>
