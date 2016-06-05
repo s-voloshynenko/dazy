@@ -4,6 +4,7 @@ import FullScreenButton from '../../buttons/window/fullscreen';
 import CloseWindowButton from '../../buttons/window/close';
 /** Routers */
 import RouteIndex from './router/index.jsx';
+import RouteDesktop from './router/desktop.jsx';
 import Draggable from 'react-draggable';
 
 export default class FolderWindow extends Component {
@@ -94,6 +95,10 @@ export default class FolderWindow extends Component {
                       openFile: this.props.openFile,
                       changeRoute: this.changeRoute.bind(this)
                   }} />
+                }
+
+                {this.state.route === 'desktop' &&
+                  <RouteDesktop />
                 }
               </div>
             </div>
