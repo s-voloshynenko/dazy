@@ -31,8 +31,10 @@ export default class FolderWindow extends Component {
     });
   }
 
-  changeRoute () {
-
+  changeRoute (type) {
+    this.setState({
+      route: type
+    })
   }
 
   render () {
@@ -81,10 +83,10 @@ export default class FolderWindow extends Component {
               <div className="pull-left col-md-3 right-divider window-menu">
                 <ul>
                   <li>
-                    <input type="button" className="window-menu-option" value="Home" />
+                    <input type="button" className="window-menu-option" value="Home" onClick={this.changeRoute.bind(this, 'index')} />
                   </li>
                   <li>
-                    <input type="button" className="window-menu-option" value="Desktop" />
+                    <input type="button" className="window-menu-option" value="Desktop" onClick={this.changeRoute.bind(this, 'desktop')} />
                   </li>
                 </ul>
               </div>
@@ -98,7 +100,9 @@ export default class FolderWindow extends Component {
                 }
 
                 {this.state.route === 'desktop' &&
-                  <RouteDesktop />
+                  <RouteDesktop handlers={{
+                    changeRoute: this.changeRoute.bind(this)
+                  }} />
                 }
               </div>
             </div>

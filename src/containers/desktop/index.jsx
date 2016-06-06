@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DesktopContextMenu from '../../components/contextmenu/desktop/index.jsx';
 import ChatExe from '../../components/files/exe/index.jsx';
+import HTMLFile from '../../components/files/html/index.jsx';
 import TerminalExe from '../../components/files/exe/terminal'
 import DefaultFolder from '../../components/folders/default/index.jsx';
 import FolderWindow from '../../components/window/folder';
@@ -8,7 +9,7 @@ import FileWindow from '../../components/window/file';
 import ErrorWindow from '../../components/window/error/index.jsx';
 
 export default class Desktop extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       posX: 0,
@@ -20,7 +21,7 @@ export default class Desktop extends Component {
     };
   }
 
-  openContextMenu(e) {
+  openContextMenu (e) {
     e.preventDefault();
 
     let posx = 0;
@@ -47,7 +48,7 @@ export default class Desktop extends Component {
     });
   }
 
-  handleClick(e) {
+  handleClick (e) {
     this.setState({
       isOpen: false
     });
@@ -124,7 +125,7 @@ export default class Desktop extends Component {
     });
   }
 
-  hoistWindow(id, e) {
+  hoistWindow (id, e) {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
 
@@ -166,7 +167,7 @@ export default class Desktop extends Component {
     });
   }
 
-  handleChatDoubleClick() {
+  handleChatDoubleClick () {
     this.setState({
       errorWindows: [{
         id: 'error-1',
@@ -178,7 +179,11 @@ export default class Desktop extends Component {
     })
   }
 
-  handleTerminalDoubleClick() {
+  handleTerminalDoubleClick () {
+
+  }
+
+  handleHTMLFileDoubleClick () {
 
   }
 
@@ -191,6 +196,7 @@ export default class Desktop extends Component {
                        openFolder={this.openFolderWindow.bind(this)} />
         <ChatExe onDoubleClick={this.handleChatDoubleClick.bind(this)} />
         <TerminalExe onDoubleClick={this.handleTerminalDoubleClick.bind(this)} />
+        <HTMLFile onDoubleClick={this.handleHTMLFileDoubleClick.bind(this)} />
 
         { this.state.folderWindows.map(folder =>
             <FolderWindow key={folder.id}
